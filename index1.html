@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NTC Converter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="index.css">
+     
+  <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
+</head>
+<body>
+    <!-- Add this in the <head> or just before </body>: -->
+
+
+    <div class="ntc-container">
+        <img src="ntc_logo.jpg" alt="NTC Logo" class="ntc-logo">
+        <div class="ntc-title">Welcome To NTC Converter</div>
+        <div class="ntc-subtitle">Provide Following info for slides table or leave it blank</div>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <div class="fields">
+                <div class="field-col">
+                    <div class="field-box">
+                        <label for="study_from">STUDY FROM:</label>
+                        <input type="text" name="study_from" id="study_from" />
+                    </div>
+                    <div class="field-box">
+                        <label for="display_title">Display Title:</label>
+                        <input type="text" name="display_title" id="display_title" />
+                    </div>
+                    <div class="field-box">
+                        <label for="project_owner">Project Owner:</label>
+                        <input type="text" name="project_owner" id="project_owner" />
+                    </div>
+                    <div class="field-box">
+                        <label for="prepared_by">Prepared By:</label>
+                        <input type="text" name="prepared_by" id="prepared_by" />
+                    </div>
+                    <div class="field-box">
+                        <label for="submitted_on">Submitted On:</label>
+                        <input type="text" name="submitted_on" id="submitted_on" />
+                    </div>
+                </div>
+                <div class="field-col">
+                    <div class="field-box">
+                        <label for="client">Client:</label>
+                        <input type="text" name="client" id="client" />
+                    </div>
+                    <div class="field-box">
+                        <label for="doc_no">Doc No:</label>
+                        <input type="text" name="doc_no" id="doc_no" />
+                    </div>
+                    <div class="field-box">
+                        <label for="project">Project:</label>
+                        <input type="text" name="project" id="project" />
+                    </div>
+                    <div class="field-box">
+                        <label for="surveyed_on">Surveyed On:</label>
+                        <input type="text" name="surveyed_on" id="surveyed_on" />
+                    </div>
+                    <div class="field-box">
+                        <label for="surveyed_by">Surveyed By:</label>
+                        <input type="text" name="surveyed_by" id="surveyed_by" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-title">Select Destination Images</div>
+            <input class="images-input" type="file" id="images-input" name="images" multiple accept="image/*" onchange="updateImageCount()" />
+            <div class="total-images" id="total-images">Total Images: 0</div>
+
+            <div class="section-title">Select a PPT Template</div>
+            <div class="template-list">
+             <img src="template1.jpg" id="template1" class="template-thumb" onclick="selectTemplate('template1')" alt="Template 1">
+            <img src="template2.jpg" id="template2" class="template-thumb" onclick="selectTemplate('template2')" alt="Template 2">
+            <img src="template3.jpg" id="template3" class="template-thumb" onclick="selectTemplate('template3')" alt="Template 3">
+         </div>
+
+            <div id="template-preview"></div>
+
+            <input type="hidden" name="selected_template" id="template-input">
+            <button class="generate-btn" type="submit">Generate PPTX</button>
+             <p id="loading-line" style="display:none; color:#0078D4; font-weight:bold; text-align:center; margin-top:10px;">
+   ⏳ Generating PPT, please wait...
+</p>
+        
+        </form>
+ 
+ </div>
+<script src="index.js"></script>
+
+</body>
+</html>
